@@ -13,11 +13,26 @@
       <ul class="nav">
         <li class="nav-item nav-category">Main</li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{ route('dashboard') }}" class="nav-link">
             <i class="link-icon" data-feather="box"></i>
             <span class="link-title">Dashboard</span>
           </a>
         </li>
+        <li class="nav-item nav-category">Home</li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
+              <i class="link-icon" data-feather="home"></i>
+              <span class="link-title">HomePage</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="emails">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="{{ route('home.slider.index') }}" class="nav-link">Slider</a>
+                </li>
+              </ul>
+            </div>
+          </li>
         <li class="nav-item nav-category">web apps</li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">

@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/fonts/feather-font/css/iconfont.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
         @if(Session::has('theme') && (Session::get('theme') == 'dark'))
             <link rel="stylesheet" href="{{ asset('assets/css/demo_2/style.css') }}">
         @else
@@ -23,7 +24,6 @@
         <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
         @stack('css')
 
     </head>
@@ -44,5 +44,8 @@
 	<script src="{{ asset('assets/vendors/core/core.js') }}"></script>
 	<script src="{{ asset('assets/vendors/feather-icons/feather.min.js') }}"></script>
 	<script src="{{ asset('assets/js/template.js') }}"></script>
+    <script src="{{ asset('assets/vendors/datatables.net/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
+    <script src="{{ asset('assets/js/data-table.js') }}"></script>
     @stack('scripts')
 </html>

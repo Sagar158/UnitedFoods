@@ -4,14 +4,16 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+    <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+        <div>
+            <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
+        </div>
+        <div class="container-fluid card mt-3">
+            <div class="row card-body">
+                <div class="col-lg-12 col-sm-12 col-md-12">
                 </div>
             </div>
         </div>
     </div>
+
 </x-app-layout>

@@ -13,15 +13,18 @@ class TextInput extends Component
     public $placeholder;
 
     public $disabled;
+
+    public $value;
     /**
      * Create a new component instance.
      */
-    public function __construct($name, $type, $placeholder = '', $disabled = false)
+    public function __construct($name, $type, $placeholder = '', $disabled = false, $value = '')
     {
         $this->name = $name;
         $this->type = $type;
         $this->placeholder = $placeholder;
         $this->disabled = $disabled;
+        $this->value = $value;
     }
 
     /**
