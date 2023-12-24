@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="auth-form-wrapper px-4 py-5">
 
-        <a href="#" class="noble-ui-logo d-block mb-2">Noble<span>UI</span></a>
+        <a href="#" class="noble-ui-logo d-block mb-2">United<span>Foods</span></a>
         <h5 class="text-muted font-weight-normal mb-4">Create a free account.</h5>
         <form method="POST" action="{{ route('register') }}">
             @csrf

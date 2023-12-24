@@ -1,7 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
       <a href="#" class="sidebar-brand">
-        Noble<span>UI</span>
+        United<span>Foods</span>
       </a>
       <div class="sidebar-toggler not-active">
         <span></span>
@@ -20,19 +20,19 @@
         </li>
         <li class="nav-item nav-category">Home</li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
+            <a class="nav-link" data-toggle="collapse" href="#homepage" role="button" aria-expanded="false" aria-controls="homepage">
               <i class="link-icon" data-feather="home"></i>
               <span class="link-title">HomePage</span>
               <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
-            <div class="collapse" id="emails">
+            <div class="collapse" id="homepage">
               <ul class="nav sub-menu">
                 <li class="nav-item">
                   <a href="{{ route('home.slider.index') }}" class="nav-link">Slider</a>
                 </li>
               </ul>
             </div>
-          </li>
+        </li>
         <li class="nav-item nav-category">web apps</li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">

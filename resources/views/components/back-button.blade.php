@@ -1,3 +1,1 @@
-<div>
-    <a href="{{ url()->previous() }}" class="btn btn-primary mb-3" >Back</a>
-</div>
+<a href="{{ url()->previous() }}" class="btn btn-outline-primary" >Back</a>

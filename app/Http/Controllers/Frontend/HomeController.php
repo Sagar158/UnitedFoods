@@ -12,18 +12,20 @@ class HomeController extends Controller
         return view('frontend.index');
     }
 
-    public function aboutus(){
-
+    public function aboutus()
+    {
+        return view('frontend.about-us');
     }
 
-    public function products(){
-
+    public function products()
+    {
+        return view('frontend.products');
     }
 
     public function events(){
 
     }
     public function contactus(){
-
+        return view('frontend.contact-us');
     }
 }

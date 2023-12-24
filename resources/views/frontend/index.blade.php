@@ -4,8 +4,6 @@
     ============================================= -->
     @include('frontend.components.slider')
     <!-- End Main -->
-
-
     <!-- Start Services
     ============================================= -->
     <div class="services-style-one-area default-padding bg-gray half-bg-theme">

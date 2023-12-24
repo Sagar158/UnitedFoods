@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit', 'edit')->name('edit'); // Ensure this route has a unique URI
         Route::post('/update/{id}', 'update')->name('update');
         Route::get('/delete/{id}', 'destroy')->name('destroy');
+        Route::get('data','getSlidersData')->name('getSlidersData');
     });
 
 

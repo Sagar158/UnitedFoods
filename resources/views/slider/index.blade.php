@@ -7,12 +7,11 @@
             <div class="row card-body">
                 <div class="col-lg-12 col-sm-12 col-md-12">
                     <div class="table-responsive">
-                        <table id="dataTableExample" class="table">
+                        <table id="sliderTable" class="table">
                           <thead>
                             <tr>
                               <th>Title</th>
                               <th>Sub Title</th>
-                              <th>Description</th>
                               <th>Image</th>
                               <th>Action</th>
                             </tr>
@@ -26,4 +25,21 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+        <script>
+            $(document).ready(function() {
+                $('#sliderTable').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: '{{ route("home.slider.getSlidersData") }}',
+                    columns: [
+                        { data: 'title', name: 'title' },
+                        { data: 'subtitle', name: 'subtitle' },
+                        { data: 'image', name: 'image' }, // You may need to customize this
+                        { data: 'action', name: 'action', orderable: false, searchable: false }
+                    ]
+                });
+            });
+        </script>
+    @endpush
 </x-app-layout>
