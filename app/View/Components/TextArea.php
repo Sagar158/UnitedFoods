@@ -21,7 +21,7 @@ class TextArea extends Component
         $this->name = $name;
         $this->placeholder = $placeholder;
         $this->disabled = $disabled;
-        $this->vaue = $value;
+        $this->value = $value;
     }
 
     /**

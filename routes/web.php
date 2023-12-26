@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThemeController;
@@ -32,18 +33,20 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
 
-
     Route::name('home.slider.')->prefix('slider')->controller(SliderController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('/edit', 'edit')->name('edit'); // Ensure this route has a unique URI
+        Route::get('/edit/{id}', 'edit')->name('edit');
         Route::post('/update/{id}', 'update')->name('update');
-        Route::get('/delete/{id}', 'destroy')->name('destroy');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/delete/{id}', 'destroy')->name('destroy');
         Route::get('data','getSlidersData')->name('getSlidersData');
     });
 
-
+    Route::name('home.aboutus.')->prefix('home/about-us')->controller(AboutUsController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+    });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

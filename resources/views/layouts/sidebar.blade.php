@@ -20,39 +20,10 @@
         </li>
         <li class="nav-item nav-category">Home</li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#homepage" role="button" aria-expanded="false" aria-controls="homepage">
-              <i class="link-icon" data-feather="home"></i>
-              <span class="link-title">HomePage</span>
-              <i class="link-arrow" data-feather="chevron-down"></i>
-            </a>
-            <div class="collapse" id="homepage">
-              <ul class="nav sub-menu">
-                <li class="nav-item">
-                  <a href="{{ route('home.slider.index') }}" class="nav-link">Slider</a>
-                </li>
-              </ul>
-            </div>
+            <a href="{{ route('home.slider.index') }}" class="nav-link">Slider</a>
         </li>
-        <li class="nav-item nav-category">web apps</li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
-            <i class="link-icon" data-feather="mail"></i>
-            <span class="link-title">Email</span>
-            <i class="link-arrow" data-feather="chevron-down"></i>
-          </a>
-          <div class="collapse" id="emails">
-            <ul class="nav sub-menu">
-              <li class="nav-item">
-                <a href="#" class="nav-link">Inbox</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Read</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Compose</a>
-              </li>
-            </ul>
-          </div>
+            <a href="{{ route('home.aboutus.index') }}" class="nav-link">What We Do</a>
         </li>
       </ul>
     </div>

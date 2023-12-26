@@ -7,7 +7,7 @@
 
             <!-- Shape -->
             <div class="shape-right-top">
-                <img src="{{ asset('frotend/assets/img/shape/leaf.png') }}" alt="Image not found">
+                <img src="{{ asset('frontend/assets/img/shape/leaf.png') }}" alt="Image not found">
             </div>
             <!-- End Shape -->
 
@@ -36,17 +36,23 @@
                             </div>
                             <div class="col-xl-5 col-lg-12 pl-50 pl-md-15 pl-xs-15">
                                 <div class="top-product-item">
-                                    <img src="{{ asset('frontend/assets/img/icon/1.svg') }}" alt="Icon">
-                                    <h5><a href="services-details.html">Natural Farming</a></h5>
+                                    <img src="{{ asset('frontend/assets/img/icon/palm-tree.png') }}" alt="Icon">
+                                    <h5><a href="services-details.html">Dates Production</a></h5>
                                     <p>
-                                        Resolve parties but trying she shewing of moment.
+                                        Cultivating date palms in arid regions, producing nutritious fruits through manual pollination and careful harvesting.
                                     </p>
                                 </div>
                                 <div class="top-product-item">
-                                    <img src="{{ asset('frontend/assets/img/icon/2.svg') }}" alt="Icon">
-                                    <h5><a href="services-details.html">Quality Products</a></h5>
+                                    <img src="{{ asset('frontend/assets/img/icon/mango.png') }}" alt="Icon">
+                                    <h5><a href="services-details.html">Mangoes Production</a></h5>
                                     <p>
-                                        Always parties but trying she shewing of moment.
+                                        Growing mango trees in tropical climates, yielding sweet, juicy fruits after meticulous cultivation and pruning.                                    </p>
+                                </div>
+                                <div class="top-product-item">
+                                    <img src="{{ asset('frontend/assets/img/icon/rice.png') }}" alt="Icon">
+                                    <h5><a href="services-details.html">Rice Production</a></h5>
+                                    <p>
+                                        Farming rice in water-rich paddies, involving sowing, flooding, and harvesting for staple grain production.
                                     </p>
                                 </div>
                             </div>

@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
-
         <x-page-heading title="{{ __('Slider') }}"></x-page-heading>
         <x-right-side-button link="{{ route('home.slider.create') }}" title="Create"></x-right-side-button>
+        <x-alert></x-alert>
         <div class="container-fluid card mt-3">
             <div class="row card-body">
                 <div class="col-lg-12 col-sm-12 col-md-12">
                     <div class="table-responsive">
-                        <table id="sliderTable" class="table">
+                        <table id="dataTable" class="table">
                           <thead>
                             <tr>
                               <th>Title</th>
@@ -28,7 +28,7 @@
     @push('scripts')
         <script>
             $(document).ready(function() {
-                $('#sliderTable').DataTable({
+                $('#dataTable').DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: '{{ route("home.slider.getSlidersData") }}',
