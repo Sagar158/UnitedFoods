@@ -60,16 +60,6 @@
                        <div class="mt-4 mt-xl-3">
                           <a href="javascript: void(0);" class="text-primary">{{ \App\Models\Products::$categories[$product->category_id] }}</a>
                           <h4 class="mt-1 mb-3">{{ $product->name }}</h4>
-                          <p class="text-muted float-start me-3">
-                             <span data-feather="star" class="text-warning"></span>
-                             <span data-feather="star" class="text-warning"></span>
-                             <span data-feather="star" class="text-warning"></span>
-                             <span data-feather="star" class="text-warning"></span>
-                             <span data-feather="star" class=""></span>
-                          </p>
-                          <p class="text-muted mb-4">( 152 Customers Review )</p>
-                          <h6 class="text-success text-uppercase">{{ $product->discount }}{{ $product->discount_unit == 'percentage' ? '%' : '' }} Off</h6>
-                          <h5 class="mb-4">Price : <span class="text-muted me-2"><del>PKR. {{ number_format($product->rate,2) }} </del></span> <b>PKR. {{ \App\Helpers\Helper::discountedPrice($product->rate, $product->discount, $product->discount_unit) }} </b></h5>
                           <p class="text-muted mb-4">{!! $product->description !!}</p>
                        </div>
                     </div>
@@ -80,12 +70,33 @@
                        <table class="table mb-0 table-bordered">
                           <tbody>
                              <tr>
-                                <th scope="row" style="width: 400px;">Unit</th>
-                                <td>{{ $product->unit }}</td>
-                             </tr>
-                             <tr>
                                 <th scope="row">Status</th>
                                 <td><span class="{{ $product->status == 'available' ? 'text-success' : 'text-danger' }}">{{ \App\Models\Products::$status[$product->status] }}</span></td>
+                             </tr>
+
+                             <tr>
+                                <th scope="row" style="width: 400px;">Color</th>
+                                <td>{{ $product->color }}</td>
+                             </tr>
+                             <tr>
+                                <th scope="row" style="width: 400px;">Texture</th>
+                                <td>{{ $product->texture }}</td>
+                             </tr>
+                             <tr>
+                                <th scope="row" style="width: 400px;">Taste</th>
+                                <td>{{ $product->taste }}</td>
+                             </tr>
+                             <tr>
+                                <th scope="row" style="width: 400px;">Appearance</th>
+                                <td>{{ $product->appearance }}</td>
+                             </tr>
+                             <tr>
+                                <th scope="row" style="width: 400px;">Size</th>
+                                <td>{{ $product->size }}</td>
+                             </tr>
+                             <tr>
+                                <th scope="row" style="width: 400px;">Taste</th>
+                                <td>{{ $product->taste }}</td>
                              </tr>
                           </tbody>
                        </table>
@@ -115,14 +126,8 @@
                                      <div class="col-md-8">
                                         <div class="text-center text-md-start pt-3 pt-md-0">
                                            <h5 class="text-truncate"><a href="{{ route('products.show', $recent->id) }}" class="text-dark">{{ $recent->name }}</a></h5>
-                                           <p class="text-muted mb-4">
-                                              <i data-feather="star" class="text-warning"></i>
-                                              <i data-feather="star" class="text-warning"></i>
-                                              <i data-feather="star" class="text-warning"></i>
-                                              <i data-feather="star" class="text-warning"></i>
-                                              <i data-feather="star" class=""></i>
-                                           </p>
-                                           <h5 class="my-0"><span class="text-muted me-2"><del>PKR. {{ number_format($recent->rate, 2) }}</del></span> <b>PKR. {{ \App\Helpers\Helper::discountedPrice($recent->rate, $recent->discount, $recent->discount_unit) }}</b></h5>
+                                           <h5 class="my-0"><span class="text-muted me-2">Status : </span> <span class="{{ $recent->status == 'available' ? 'text-success' : 'text-danger' }}">{{ \App\Models\Products::$status[$recent->status] }}</span></h5>
+                                           <h5 class="my-0"><span class="text-muted me-2">Color : </span> <span> {{ ucfirst($recent->color) }}</span></h5>
                                         </div>
                                      </div>
                                   </div>

@@ -11,9 +11,10 @@
                           <thead>
                             <tr>
                               <th>Name</th>
-                              <th>Image</th>
-                              <th>Rate</th>
-                              <th>Discount</th>
+                              <th>Color</th>
+                              <th>Size</th>
+                              <th>Taste</th>
+                              <th>Texture</th>
                               <th>Action</th>
                             </tr>
                           </thead>
@@ -35,9 +36,10 @@
                     ajax: '{{ route("products.getProductData") }}',
                     columns: [
                         { data: 'name', name: 'name' },
-                        { data: 'image', name: 'image' },
-                        { data: 'rate', name: 'rate' },
-                        { data: 'discount', name: 'discount' },
+                        { data: 'color', name: 'color' },
+                        { data: 'size', name: 'size' },
+                        { data: 'taste', name: 'taste' },
+                        { data: 'texture', name: 'texture' },
                         { data: 'action', name: 'action', orderable: false, searchable: false }
                     ]
                 });

@@ -24,16 +24,22 @@
                         <x-text-input id="name" type="text" name="name" :value="old('name', $product->name)" required autofocus placeholder="Name" />
                     </div>
                     <div class="col-lg-12 col-sm-12 col-md-12">
-                        <x-text-input id="rate" type="number" name="rate" :value="old('rate', $product->rate)" required autofocus placeholder="Rate" />
+                        <x-text-input id="color" type="text" name="color" :value="old('color', $product->color)" required autofocus placeholder="Color" />
                     </div>
                     <div class="col-lg-12 col-sm-12 col-md-12">
-                        <x-select-box id="unit" name="unit" :value="old('unit', $product->unit)" :values="\App\Models\Products::$units" placeholder="Unit" />
+                        <x-text-input id="texture" type="text" name="texture" :value="old('texture', $product->texture)" required autofocus placeholder="Texture" />
                     </div>
                     <div class="col-lg-12 col-sm-12 col-md-12">
-                        <x-text-input id="discount" type="number" name="discount" :value="old('discount', $product->discount)" required autofocus placeholder="Discount" />
+                        <x-text-input id="taste" type="text" name="taste" :value="old('taste', $product->taste)" required autofocus placeholder="Taste" />
                     </div>
                     <div class="col-lg-12 col-sm-12 col-md-12">
-                        <x-select-box id="discount_unit" name="discount_unit" :value="old('discount_unit', $product->discount_unit)" :values="\App\Models\Products::$discount_units" placeholder="Discount Unit" />
+                        <x-text-input id="appearance" type="text" name="appearance" :value="old('appearance', $product->appearance)" required autofocus placeholder="Appearance" />
+                    </div>
+                    <div class="col-lg-12 col-sm-12 col-md-12">
+                        <x-text-input id="size" type="text" name="size" :value="old('size', $product->size)" required autofocus placeholder="Size" />
+                    </div>
+                    <div class="col-lg-12 col-sm-12 col-md-12">
+                        <x-text-input id="shape" type="text" name="shape" :value="old('shape', $product->shape)" required autofocus placeholder="Shape" />
                     </div>
                     <div class="col-lg-12 col-sm-12 col-md-12">
                         <x-text-area id="description" name="description" :value="old('description', $product->description)" required autofocus placeholder="Description" />

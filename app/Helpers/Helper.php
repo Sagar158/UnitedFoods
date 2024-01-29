@@ -3,6 +3,7 @@ namespace App\Helpers;
 
 use App\Models\Events;
 use App\Models\ContactInformation;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class Helper
@@ -23,6 +24,20 @@ class Helper
             }
         }
     }
+
+    public static function uploadPdfFile($request, $filePath = '')
+    {
+        $file_path = public_path($filePath);
+
+        if (File::exists($file_path))
+        {
+            File::delete($file_path);
+        }
+        $fileName = time().'.'.$request->pdf->extension();
+        $request->pdf->move(public_path('uploads'), $fileName);
+        return 'uploads/' .$fileName;
+    }
+
 
     public static function discountedPrice($price, $discount, $discountUnit)
     {

@@ -31,6 +31,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('event','events')->name('event');
     Route::get('contactus','contactus')->name('contactus');
     Route::post('contact/store','contactStore')->name('contactStore');
+    Route::get('certificates','certificates')->name('certificates');
 });
 
 

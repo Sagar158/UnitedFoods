@@ -7,6 +7,7 @@ use App\Models\Slider;
 use App\Models\AboutUs;
 use App\Models\ContactUs;
 use Illuminate\Http\Request;
+use App\Models\Certifications;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
@@ -36,6 +37,12 @@ class HomeController extends Controller
     }
     public function contactus(){
         return view('frontend.contact-us');
+    }
+
+    public function certificates()
+    {
+        $certificates = Certifications::orderBy('id','desc')->get();
+        return view('frontend.certificates',compact('certificates'));
     }
 
     public function contactStore(Request $request)

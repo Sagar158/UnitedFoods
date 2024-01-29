@@ -18,6 +18,10 @@
                                         <p>
                                             {{ strip_tags($slide->description) }}
                                         </p>
+
+                                        <div class="button">
+                                            <a class="btn btn-theme secondary btn-md radius animation" href="{{ route('certificates') }}">View Certificates</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

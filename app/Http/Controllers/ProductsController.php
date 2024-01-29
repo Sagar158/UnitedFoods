@@ -44,10 +44,12 @@ class ProductsController extends Controller
             'status' => 'required',
             'description' => 'nullable|string',
             'category_id' => 'required',
-            'rate' => 'required',
-            'unit' => 'required',
-            'discount' => 'required',
-            'discount_unit' => 'required',
+            'color' => 'required',
+            'texture' => 'required',
+            'taste' => 'required',
+            'appearance' => 'required',
+            'size' => 'required',
+            'shape' => 'required',
         ]);
 
 
@@ -55,11 +57,13 @@ class ProductsController extends Controller
         $product->status = $validatedData['status'];
         $product->name = $validatedData['name'];
         $product->description = $validatedData['description'];
-        $product->unit = $validatedData['unit'];
         $product->category_id = $validatedData['category_id'];
-        $product->rate = $validatedData['rate'];
-        $product->discount = $validatedData['discount'];
-        $product->discount_unit = $validatedData['discount_unit'];
+        $product->color = $validatedData['color'];
+        $product->texture = $validatedData['texture'];
+        $product->taste = $validatedData['taste'];
+        $product->appearance = $validatedData['appearance'];
+        $product->size = $validatedData['size'];
+        $product->shape = $validatedData['shape'];
         $product->save();
 
         if($request->has('images'))
@@ -109,10 +113,12 @@ class ProductsController extends Controller
             'status' => 'required',
             'description' => 'nullable|string',
             'category_id' => 'required',
-            'rate' => 'required',
-            'unit' => 'required',
-            'discount' => 'required',
-            'discount_unit' => 'required',
+            'color' => 'required',
+            'texture' => 'required',
+            'taste' => 'required',
+            'appearance' => 'required',
+            'size' => 'required',
+            'shape' => 'required',
         ]);
 
 
@@ -120,11 +126,13 @@ class ProductsController extends Controller
         $product->status = $validatedData['status'];
         $product->name = $validatedData['name'];
         $product->description = $validatedData['description'];
-        $product->unit = $validatedData['unit'];
         $product->category_id = $validatedData['category_id'];
-        $product->rate = $validatedData['rate'];
-        $product->discount = $validatedData['discount'];
-        $product->discount_unit = $validatedData['discount_unit'];
+        $product->color = $validatedData['color'];
+        $product->texture = $validatedData['texture'];
+        $product->taste = $validatedData['taste'];
+        $product->appearance = $validatedData['appearance'];
+        $product->size = $validatedData['size'];
+        $product->shape = $validatedData['shape'];
         $product->save();
 
         if($request->has('images'))

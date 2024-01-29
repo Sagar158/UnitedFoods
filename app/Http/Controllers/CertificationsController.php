@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use App\Models\Certifications;
 use Yajra\DataTables\Facades\DataTables;
@@ -42,9 +43,8 @@ class CertificationsController extends Controller
         $certification->title = $request->title;
         if ($request->hasFile('pdf'))
         {
-            $fileName = time().'.'.$request->pdf->extension();
-            $request->pdf->move(public_path('uploads'), $fileName);
-            $certification->pdf = 'uploads/' . $fileName;
+            $filePath = Helper::uploadPdfFile($request);
+            $certification->pdf = $filePath;
         }
         $certification->save();
         return redirect()->route('home.certifications.index')->with('success','Certification created successfully.');
@@ -63,7 +63,10 @@ class CertificationsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $title = $this->title;
+        $certification = Certifications::findOrFail($id);
+        return view('certifications.edit', compact('title','certification'));
+
     }
 
     /**
@@ -71,7 +74,20 @@ class CertificationsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255',
+            'pdf' => 'file|mimes:pdf|max:10000', // Example validation rules
+        ]);
+
+        $certification =  Certifications::findOrFail($id);
+        $certification->title = $request->title;
+        if ($request->hasFile('pdf'))
+        {
+            $filePath = Helper::uploadPdfFile($request, $certification->pdf);
+            $certification->pdf = $filePath;
+        }
+        $certification->save();
+        return redirect()->route('home.certifications.index')->with('success','Certification updated successfully.');
     }
 
     /**
@@ -89,7 +105,7 @@ class CertificationsController extends Controller
         return DataTables::of($query)
             ->editColumn('pdf', function ($certification) {
                 $pdfUrl = asset($certification->pdf);
-                return '<a href="'. $pdfUrl .'" target="_blank"><i data-feather="file"></i></a>';
+                return '<a href="'. $pdfUrl .'" target="_blank">Certificate Link</a>';
             })
             ->addColumn('action', function ($certification) {
                 return '

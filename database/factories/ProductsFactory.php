@@ -20,10 +20,12 @@ class ProductsFactory extends Factory
             'category_id' => $this->faker->numberBetween(1, 3),
             'name' => $this->faker->word,
             'description' => $this->faker->sentence,
-            'rate' => $this->faker->randomFloat(2, 0, 100), // Assuming rate is a decimal
-            'unit' => 'kg',
-            'discount' => $this->faker->numberBetween(1, 100),
-            'discount_unit' => $this->faker->randomElement(['percentage', 'fixed']),
+            'color' => $this->faker->optional()->safeColorName,
+            'texture' => $this->faker->optional()->word,
+            'taste' => $this->faker->optional()->word,
+            'appearance' => $this->faker->optional()->word,
+            'size' => $this->faker->optional()->randomElement(['small', 'medium', 'large']),
+            'shape' => $this->faker->optional()->word,
         ];
     }
 }

@@ -11,7 +11,7 @@
                 {{ @csrf_field() }}
                 <div class="row card-body">
                     <div class="col-lg-12 col-sm-12 col-md-12">
-                        <x-text-input id="title" type="text" name="title" :value="old('title', $certification->name)" required autofocus placeholder="Title" />
+                        <x-text-input id="title" type="text" name="title" :value="old('title', $certification->title)" required autofocus placeholder="Title" />
                     </div>
                     <div class="col-lg-12 col-sm-12 col-md-12">
                         <label for="" class="font-weight-bold">Certificate</label>
