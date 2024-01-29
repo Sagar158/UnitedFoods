@@ -15,6 +15,12 @@ Version: 1.0
 }
 
 /* Default for supporting bootstrap */
+@media (max-width: 767px) {
+    .mobile-size-logo{
+        width: 180px !important;
+        height: 180px !important;
+    }
+}
 
 @media (min-width: 768px) {
     .nav-box .container,
@@ -335,6 +341,7 @@ Version: 1.0
 }
 
 @media (max-width: 767px) {
+
     .navbar-nav .open .dropdown-menu {
         position: static;
         float: none;

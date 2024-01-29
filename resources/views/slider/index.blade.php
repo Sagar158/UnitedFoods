@@ -1,6 +1,6 @@
-<x-app-layout>
+<x-app-layout title="{{ $title }}">
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
-        <x-page-heading title="{{ __('Slider') }}"></x-page-heading>
+        <x-page-heading title="{{ __('Slides') }}"></x-page-heading>
         <x-right-side-button link="{{ route('home.slider.create') }}" title="Create"></x-right-side-button>
         <x-alert></x-alert>
         <div class="container-fluid card mt-3">

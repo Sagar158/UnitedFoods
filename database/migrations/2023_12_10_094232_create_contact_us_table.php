@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->string('description');
+            $table->longText('description')->nullable();
+            $table->enum('status',['pending','verified'])->default('pending');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

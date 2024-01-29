@@ -2,9 +2,9 @@ $(function() {
   'use strict';
 
   //Tinymce editor
-  if ($("#tinymceExample").length) {
+  if ($(".tinymceExample").length) {
     tinymce.init({
-      selector: '#tinymceExample',
+      selector: '.tinymceExample',
       height: 400,
       theme: 'silver',
       plugins: [
@@ -26,5 +26,5 @@ $(function() {
       content_css: []
     });
   }
-  
+
 });

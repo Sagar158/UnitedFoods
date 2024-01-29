@@ -6,14 +6,14 @@
                 <div class="col-lg-9">
                     <div class="flex-item left">
                         <p>
-                            That's right, we only sell 100% organic
+                            We only sell 100% quality things.
                         </p>
                         <ul>
                             <li>
-                                <i class="fas fa-map-marker-alt"></i> California, TX 70240
+                                <i class="fas fa-map-marker-alt"></i> {{ \App\Helpers\Helper::information()->short_location }}
                             </li>
                             <li>
-                                <i class="fas fa-phone-alt"></i> +4733378901
+                                <i class="fas fa-phone-alt"></i> {{ \App\Helpers\Helper::information()->phone }}
                             </li>
                         </ul>
                     </div>
@@ -21,26 +21,34 @@
                 <div class="col-lg-3 text-end">
                     <div class="social">
                         <ul>
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
+                            @if(!empty(\App\Helpers\Helper::information()->facebook))
+                                <li>
+                                    <a href="{{ \App\Helpers\Helper::information()->facebook }}" target="_blank">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                            @endif
+                            @if(!empty(\App\Helpers\Helper::information()->twitter))
+                                <li>
+                                    <a href="{{ \App\Helpers\Helper::information()->twitter }}" target="_blank">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                            @endif
+                            @if(!empty(\App\Helpers\Helper::information()->youtube))
+                                <li>
+                                    <a href="{{ \App\Helpers\Helper::information()->youtube }}" target="_blank">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </li>
+                            @endif
+                            @if(!empty(\App\Helpers\Helper::information()->linkedin))
+                                <li>
+                                    <a href="{{ \App\Helpers\Helper::information()->linkedin }}" target="_blank">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -75,8 +83,8 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="index.html">
-                        <img src="{{ asset('frontend/assets/img/logo.png') }}" class="logo" alt="Logo">
+                    <a class="navbar-brand" href="{{ route('home') }}">
+                        <img src="{{ asset('frontend/assets/img/united-foods.svg') }}" class="logo" alt="Logo">
                     </a>
                 </div>
                 <!-- End Header Navigation -->
@@ -86,7 +94,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="navbar-menu">
 
-                        <img src="{{ asset('frontend/assets/img/logo.png') }}" alt="Logo">
+                        <img src="{{ asset('frontend/assets/img/united-foods.svg') }}" class="mobile-size-logo" alt="Logo">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-times"></i>
                         </button>
@@ -94,9 +102,9 @@
                         <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('about-us') }}">What we do</a></li>
-                            <li><a href="{{ route('products') }}">Products</a></li>
-                            <li><a href="{{ route('events') }}">Events</a></li>
-                            <li><a href="{{ route('contact-us') }}">Contact us</a></li>
+                            <li><a href="{{ route('product') }}">Products</a></li>
+                            <li><a href="{{ route('event') }}">Events</a></li>
+                            <li><a href="{{ route('contactus') }}">Contact us</a></li>
                             <li><a href="{{ route('login') }}">Login</a></li>
                         </ul>
                     </div>
@@ -113,7 +121,7 @@
                                         </div>
                                         <div class="info">
                                             <p>Have any Questions?</p>
-                                            <h5><a href="mailto:info@crysta.com">info@agrul.com</a></h5>
+                                            <h5><a href="mailto:{{ \App\Helpers\Helper::information()->email }}">{{ \App\Helpers\Helper::information()->email }}</a></h5>
                                         </div>
                                     </div>
                                 </li>

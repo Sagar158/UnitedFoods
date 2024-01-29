@@ -4,42 +4,24 @@
             <div class="row">
 
                 <!-- Single Itme -->
-                <div class="col-lg-4 col-md-6 item">
-                    <div class="footer-item about">
-                        <img class="logo" src="{{ asset('frontend/assets/img/logo-light.png') }}" alt="Logo">
-                        <p>
-                            Happen active county. Winding morning ambition shyness evident to poor. Because elderly new to the point to main success.
-                        </p>
-                        <form action="#">
-                            <input type="email" placeholder="Your Email" class="form-control" name="email">
-                            <button type="submit"> Go</button>
-                        </form>
-                    </div>
-                </div>
-                <!-- End Single Itme -->
-
-                <!-- Single Itme -->
-                <div class="col-lg-2 col-md-6 item">
+                <div class="col-lg-4 col-md-12 item">
                     <div class="footer-item link">
                         <h4 class="widget-title">Explore</h4>
                         <ul>
                             <li>
-                                <a href="about-us.html">About Us</a>
+                                <a href="{{ route('home') }}">Home</a>
                             </li>
                             <li>
-                                <a href="team.html">Meet Our Team</a>
+                                <a href="{{ route('about-us') }}">What We Do</a>
                             </li>
                             <li>
-                                <a href="blog-single-with-sidebar.html">News & Media</a>
+                                <a href="{{ route('product') }}">Products</a>
                             </li>
                             <li>
-                                <a href="services.html">Services</a>
+                                <a href="{{ route('event') }}">Events</a>
                             </li>
                             <li>
-                                <a href="contact-us.html">Contact Us</a>
-                            </li>
-                            <li>
-                                <a href="team-details.html">Volunteers</a>
+                                <a href="{{ route('contactus') }}">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -47,43 +29,38 @@
                 <!-- End Single Itme -->
 
                 <!-- Single Itme -->
-                <div class="col-lg-3 col-md-6 item">
+                <div class="col-lg-4 col-md-12 item">
                     <div class="footer-item recent-post">
-                        <h4 class="widget-title">Recent Posts</h4>
+                        <h4 class="widget-title">Recent Events</h4>
                         <ul>
-                            <li>
-                                <div class="thumb">
-                                    <a href="blog-single-with-sidebar.html">
-                                        <img src="{{ asset('frontend/assets/img/thumbs/3.jpg') }}" alt="Thumb">
-                                    </a>
-                                </div>
-                                <div class="info">
-                                    <div class="meta-title">
-                                        <span class="post-date">12 Sep, 2022</span>
+                            @if(!empty(\App\Helpers\Helper::recentEvents()))
+                                @foreach(\App\Helpers\Helper::recentEvents() as $event)
+                                <li>
+                                    <div class="thumb">
+                                        <a href="blog-single-with-sidebar.html">
+                                            @if(isset($event->primaryImage->image))
+                                                <img src="{{ asset($event->primaryImage->image) }}" class="thumb-post" alt="Thumb">
+                                            @else
+                                                <img src="{{ asset('assets/images/placeholder.jpg') }}" class="thumb-post" alt="Thumb" >
+                                            @endif
+                                        </a>
                                     </div>
-                                    <h5><a href="blog-single-with-sidebar.html">Meant widow equal an share least part. </a></h5>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumb">
-                                    <a href="blog-single-with-sidebar.html">
-                                        <img src="{{ asset('frontend/assets/img/thumbs/5.jpg') }}" alt="Thumb">
-                                    </a>
-                                </div>
-                                <div class="info">
-                                    <div class="meta-title">
-                                        <span class="post-date">18 Jul, 2022</span>
+                                    <div class="info">
+                                        <div class="meta-title">
+                                            <span class="post-date">{{ date('F j, Y', strtotime($event->created_at)) }}</span>
+                                        </div>
+                                        <h5><a href="blog-single-with-sidebar.html">{{ strstr(strip_tags($event->description), '.', true) }} </a></h5>
                                     </div>
-                                    <h5><a href="blog-single-with-sidebar.html">Future Plan & Strategy for Consutruction </a></h5>
-                                </div>
-                            </li>
+                                </li>
+                                @endforeach
+                            @endif
                         </ul>
                     </div>
                 </div>
                 <!-- End Single Itme -->
 
                 <!-- Single Itme -->
-                <div class="col-lg-3 col-md-6 item">
+                <div class="col-lg-4 col-md-12 item">
                     <div class="footer-item contact">
                         <h4 class="widget-title">Contact Info</h4>
                         <ul>
@@ -92,7 +69,7 @@
                                     <i class="fas fa-home"></i>
                                 </div>
                                 <div class="content">
-                                    <strong>Address:</strong> 5919 Trussville Crossings Pkwy, Birmingham
+                                    <strong>Address:</strong> {{ \App\Helpers\Helper::information()->location }}
                                 </div>
                             </li>
                             <li>
@@ -101,7 +78,7 @@
                                 </div>
                                 <div class="content">
                                     <strong>Email:</strong>
-                                    <a href="mailto:info@validtheme.com">info@validtheme.com</a>
+                                    <a href="mailto:{{ \App\Helpers\Helper::information()->email }}">{{ \App\Helpers\Helper::information()->email }}</a>
                                 </div>
                             </li>
                             <li>
@@ -110,7 +87,7 @@
                                 </div>
                                 <div class="content">
                                     <strong>Phone:</strong>
-                                    <a href="tel:2151234567">+123 34598768</a>
+                                    <a href="tel:{{ \App\Helpers\Helper::information()->phone }}">{{ \App\Helpers\Helper::information()->phone }}</a>
                                 </div>
                             </li>
                         </ul>
@@ -124,29 +101,12 @@
         <div class="footer-bottom">
             <div class="row">
                 <div class="col-lg-6">
-                    <p>&copy; Copyright 2022. All Rights Reserved by <a href="#">validthemes</a></p>
+                    <p>&copy; Copyright 2024. All Rights Reserved by <a href="#">United Foods</a></p>
                 </div>
                 <div class="col-lg-6 text-end">
-                    <ul>
-                        <li>
-                            <a href="about-us.html">Terms</a>
-                        </li>
-                        <li>
-                            <a href="about-us.html">Privacy</a>
-                        </li>
-                        <li>
-                            <a href="contact-us.html">Support</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
         <!-- End Footer Bottom -->
-    </div>
-    <div class="shape-right-bottom">
-        <img src="{{ asset('frontend/assets/img/shape/10.png') }}" alt="Image Not Found">
-    </div>
-    <div class="shape-left-bottom">
-        <img src="{{ asset('frontend/assets/img/shape/11.png') }}" alt="Image Not Found">
     </div>
 </footer>

@@ -11036,3 +11036,14 @@ fieldset:disabled .btn {
 }
 
 /*# sourceMappingURL=bootstrap.min.css.map */
+
+
+.logo{
+    width: 115px !important;
+    height: 115px !important;
+}
+
+.thumb-post{
+    width: 80px !important;
+    height: 80px !important;
+}

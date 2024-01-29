@@ -2,19 +2,28 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Teams;
+use App\Models\Slider;
+use App\Models\AboutUs;
+use App\Models\ContactUs;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('frontend.index');
+        $aboutUs = AboutUs::first();
+        $slides = Slider::select('image','title','subtitle','description')->get();
+
+        return view('frontend.index',compact('aboutUs','slides'));
     }
 
     public function aboutus()
     {
-        return view('frontend.about-us');
+        $aboutUs = AboutUs::first();
+        $teams = Teams::select('name','designation','image')->get();
+        return view('frontend.about-us', compact('aboutUs','teams'));
     }
 
     public function products()
@@ -27,5 +36,17 @@ class HomeController extends Controller
     }
     public function contactus(){
         return view('frontend.contact-us');
+    }
+
+    public function contactStore(Request $request)
+    {
+        ContactUs::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'description' => $request->comments
+        ]);
+
+        return response()->json(['message' => 'Your Query has been successfully submitted to our team. Our team will contact you soon.']);
     }
 }

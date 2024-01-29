@@ -7,3 +7,98 @@
     height: 200px !important;
     border-radius: 0% !important;
 }
+
+.product-detai-imgs .nav .nav-link.active {
+    background-color: var(--bs-tertiary-bg);
+}
+.flex-column {
+    -webkit-box-orient: vertical!important;
+    -webkit-box-direction: normal!important;
+    -ms-flex-direction: column!important;
+    flex-direction: column!important;
+}
+.nav-pills {
+    --bs-nav-pills-border-radius: var(--bs-border-radius);
+    --bs-nav-pills-link-active-color: #fff;
+    --bs-nav-pills-link-active-bg: #556ee6;
+}
+.nav {
+    --bs-nav-link-padding-x: 1rem;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-color: var(--bs-link-color);
+    --bs-nav-link-hover-color: var(--bs-link-hover-color);
+    --bs-nav-link-disabled-color: var(--bs-secondary-color);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.product-detai-imgs .nav .nav-link.active {
+    background-color: var(--bs-tertiary-bg);
+}
+.product-detai-imgs .nav .nav-link {
+    margin: 7px 0;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: var(--bs-nav-pills-link-active-color);
+    background-color: var(--bs-nav-pills-link-active-bg);
+}
+.nav-pills .nav-link {
+    border-radius: var(--bs-nav-pills-border-radius);
+}
+.nav-pills>a {
+    color: var(--bs-emphasis-color);
+    font-weight: 500;
+}
+.nav-link {
+    display: block;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    color: var(--bs-nav-link-color);
+    background: 0 0;
+    border: 0;
+    -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+.rounded {
+    border-radius: var(--bs-border-radius)!important;
+}
+.mx-auto {
+    margin-right: auto!important;
+    margin-left: auto!important;
+}
+.d-block {
+    display: block!important;
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+img, svg {
+    vertical-align: middle;
+}
+
+.product-show-image
+{
+    width: 432px !important;
+    height: 384px !important;
+}
+
+.img-thumbnail
+{
+   width: 139px !important;
+   height: 104px !important;
+}
+
+.min-h-500{
+    min-height: 500px !important;
+}
+
+.cursor-pointer{
+    cursor: pointer !important;
+}

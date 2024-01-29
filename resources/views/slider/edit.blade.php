@@ -1,13 +1,13 @@
 @php
     $route = (!isset($slider->id) ? route('home.slider.store') : route('home.slider.update',$slider->id));
 @endphp
-<x-app-layout>
+<x-app-layout title="{{ $title }}">
     @push('css')
     	<link rel="stylesheet" href="{{ asset('assets/vendors/simplemde/simplemde.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/vendors/dropify/dist/dropify.min.css') }}">
     @endpush
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
-        <x-page-heading title="{{ __('Create / Update Slider') }}"></x-page-heading>
+        <x-page-heading title="{{ __('Create / Update Slide') }}"></x-page-heading>
         <x-back-button></x-back-button>
 
         <div class="container-fluid card mt-3">

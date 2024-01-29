@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="{{ $title }}">
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
         <x-page-heading title="{{ __('Slider Show') }}"></x-page-heading>
         <x-back-button></x-back-button>

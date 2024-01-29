@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->enum('status',['order_confirmation_pending','processing','shipped','delivered']);
             $table->double('total_amount')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

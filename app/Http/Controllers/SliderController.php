@@ -10,19 +10,25 @@ use Yajra\DataTables\DataTables;
 
 class SliderController extends Controller
 {
+    public $title = 'Slides';
     public function index()
     {
-        return view('slider.index');
+        $title = $this->title;
+        return view('slider.index',compact('title'));
     }
     public function create()
     {
+        $title = $this->title;
+
         $slider = new Slider();
-        return view('slider.edit', compact('slider'));
+        return view('slider.edit', compact('slider','title'));
     }
     public function edit(Request $request, $sliderId)
     {
+        $title = $this->title;
+
         $slider = Slider::findOrFail($sliderId);
-        return view('slider.edit', compact('slider'));
+        return view('slider.edit', compact('slider','title'));
     }
 
     public function store(Request $request)
@@ -92,15 +98,20 @@ class SliderController extends Controller
 
     public function destroy(Request $request, $sliderId)
     {
+        $slidesImages = Slider::where('id',$sliderId)->select('image')->pluck('image')->toArray();
+        Helper::deleteFiles($slidesImages);
+
         $record = Slider::destroy($sliderId);
         return response()->json(['success' => $record]);
     }
 
     public function show(Request $request, $sliderId)
     {
+        $title = $this->title;
+
         $slider = Slider::findorFail($sliderId);
 
-        return view('slider.show',compact('slider'));
+        return view('slider.show',compact('slider','title'));
     }
 
 }

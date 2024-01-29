@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('product_id');
             $table->string('image');
-            $table->enum('primary',['yes','no']);
+            $table->boolean('primary');
             $table->timestamps();
         });
     }

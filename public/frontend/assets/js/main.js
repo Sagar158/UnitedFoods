@@ -1,9 +1,9 @@
 /* ===================================================================
-    
+
     Author          : Valid Theme
     Template Name   : Agrul - Organic Farm Agriculture Template
     Version         : 1.0
-    
+
 * ================================================================= */
 (function($) {
     "use strict";
@@ -553,30 +553,54 @@
         ================================================== */
         $('.contact-form').each(function() {
             var formInstance = $(this);
-            formInstance.submit(function() {
+            formInstance.submit(function(e) {
+                e.preventDefault(); // Prevent default form submission
 
-                var action = $(this).attr('action');
+                var isValid = true;
+                formInstance.find('#name, #email, #phone, #comments').each(function() {
+                    if ($.trim($(this).val()) === '')
+                    {
+                        isValid = false;
+                        $(this).css('border', '2px solid red');
+                    }
+                    else
+                    {
+                        $(this).css('border', '');
+                    }
+                });
+
+                if (!isValid)
+                {
+                    $('#message').html('Please fill in all the required fields.').slideDown('slow');
+                    return false;
+                }
+
+
+                var action = formInstance.attr('action');
+                var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
                 $("#message").slideUp(750, function() {
                     $('#message').hide();
 
                     $('#submit')
-                        .after('<img src="assets/img/ajax-loader.gif" class="loader" />')
+                        .after('<img src="frontend/assets/img/ajax-loader.gif" class="loader" />')
                         .attr('disabled', 'disabled');
 
                     $.post(action, {
+                            _token: csrfToken,
                             name: $('#name').val(),
                             email: $('#email').val(),
                             phone: $('#phone').val(),
                             comments: $('#comments').val()
                         },
                         function(data) {
-                            document.getElementById('message').innerHTML = data;
+                            document.getElementById('message').innerHTML = '<span class="text-success">'+data.message+'</span>';
                             $('#message').slideDown('slow');
                             $('.contact-form img.loader').fadeOut('slow', function() {
                                 $(this).remove()
                             });
                             $('#submit').removeAttr('disabled');
+                            formInstance[0].reset();
                         }
                     );
                 });

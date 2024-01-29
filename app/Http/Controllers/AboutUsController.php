@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teams;
+use App\Models\AboutUs;
 use Illuminate\Http\Request;
 
 class AboutUsController extends Controller
 {
+
+    public $title = 'About Us';
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('about-us.index');
+        $title = $this->title;
+        $aboutUs = AboutUs::first();
+        return view('about-us.index',compact('aboutUs','title'));
     }
 
     /**
@@ -27,7 +33,16 @@ class AboutUsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'our_mission' => 'required|string',
+            'our_vission' => 'required|string',
+         ]);
+
+         $aboutUs =  AboutUs::findOrFail(1);
+        $aboutUs->our_mission = $validatedData['our_mission'];
+        $aboutUs->our_vission = $validatedData['our_vission'];
+        $aboutUs->save();
+        return redirect()->route('home.aboutus.index')->with('success', 'Mission & Vision added successfully.');
     }
 
     /**
@@ -51,7 +66,16 @@ class AboutUsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'our_mission' => 'required|string',
+            'our_vission' => 'required|string',
+         ]);
+
+        $aboutUs =  AboutUs::findOrFail(1);
+        $aboutUs->our_mission = $validatedData['our_mission'];
+        $aboutUs->our_vission = $validatedData['our_vission'];
+        $aboutUs->save();
+        return redirect()->route('home.aboutus.index')->with('success', 'Mission & Vision updated successfully.');
     }
 
     /**

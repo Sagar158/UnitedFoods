@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('slider', function (Blueprint $table) {
+        Schema::create('certifications', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('pdf');
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('slider', function (Blueprint $table) {
-            $table->dropSoftDeletes();
-        });
+        Schema::dropIfExists('certifications');
     }
 };

@@ -1,11 +1,17 @@
 <?php
 
-use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\Frontend\HomeController;
+use App\Models\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\ThemeController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\CertificationsController;
+use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\Frontend\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +27,10 @@ use App\Http\Controllers\SliderController;
 Route::controller(HomeController::class)->group(function () {
     Route::get('/','index')->name('home');
     Route::get('about-us','aboutus')->name('about-us');
-    Route::get('products','products')->name('products');
-    Route::get('events','events')->name('events');
-    Route::get('contact-us','contactus')->name('contact-us');
+    Route::get('product','products')->name('product');
+    Route::get('event','events')->name('event');
+    Route::get('contactus','contactus')->name('contactus');
+    Route::post('contact/store','contactStore')->name('contactStore');
 });
 
 
@@ -32,6 +39,21 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+    Route::prefix('dashboard')->controller(DashboardController::class)->group(function () {
+        Route::get('/', 'index')->name('dashboard');
+
+    });
+    Route::name('home.certifications.')->prefix('certifications')->controller(CertificationsController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/delete/{id}', 'destroy')->name('destroy');
+        Route::get('data','getCertificationsData')->name('getCertificationsData');
+    });
 
     Route::name('home.slider.')->prefix('slider')->controller(SliderController::class)->group(function () {
         Route::get('/', 'index')->name('index');
@@ -46,6 +68,49 @@ Route::middleware('auth')->group(function () {
 
     Route::name('home.aboutus.')->prefix('home/about-us')->controller(AboutUsController::class)->group(function () {
         Route::get('/', 'index')->name('index');
+        Route::post('/store', 'store')->name('store');
+        Route::post('/update/{id}', 'update')->name('update');
+    });
+
+    Route::name('home.aboutus.team.')->prefix('team')->controller(TeamsController::class)->group(function () {
+        Route::get('/','index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('data','getTeamData')->name('getTeamData');
+        Route::post('/delete/{id}', 'destroy')->name('destroy');
+    });
+
+    Route::name('products.')->prefix('products')->controller(ProductsController::class)->group(function(){
+        Route::get('/','index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::post('/delete/{id}', 'destroy')->name('destroy');
+        Route::get('data','getProductData')->name('getProductData');
+    });
+
+    Route::name('events.')->prefix('events')->controller(EventController::class)->group(function(){
+        Route::get('/','index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'destroy')->name('destroy');
+        Route::get('data','getEventData')->name('getEventData');
+    });
+
+    Route::name('contact-us.')->prefix('contact-us')->controller(ContactUsController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('data','getContactData')->name('getContactData');
+        Route::get('show/{id}','show')->name('show');
+        Route::post('/delete/{id}', 'destroy')->name('destroy');
+        Route::get('/information', 'information')->name('information');
+        Route::post('information/update/{id}', 'update')->name('information.update');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
