@@ -42,6 +42,14 @@ $(function() {
       curve: "smooth",
       lineCap: "round"
     },
+    legend: {
+      show: true,
+      position: "top",
+      horizontalAlign: 'left',
+      containerMargin: {
+        top: 30
+      }
+    },
     responsive: [
       {
         breakpoint: 500,

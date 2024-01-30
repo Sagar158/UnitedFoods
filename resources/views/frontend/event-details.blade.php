@@ -7,7 +7,7 @@
                 <div class="blog-content col-lg-10 offset-lg-1 col-md-12">
 
                     <div class="blog-style-two item">
-                        <h1><strong><u>{{ $event->name }}</u></strong></h1>
+                        <h2><strong>{{ $event->name }}</strong></h2>
                         <div class="thumb">
                             <a href="{{ route('eventDetails', $event->id) }}"><img style="width: 100%;" src="{{ isset($event->primaryImage->image) ? asset($event->primaryImage->image) : asset('assets/images/placeholder.jpg') }}" alt="Thumb"><</a>
                             <div class="date"><strong>{{ date('j', strtotime($event->created_at)) }}</strong> <span>{{ date('F, Y', strtotime($event->created_at)) }}</span></div>
