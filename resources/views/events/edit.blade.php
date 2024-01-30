@@ -28,7 +28,7 @@
                         <x-text-area id="description" name="description" :value="old('description', $event->description)" required autofocus placeholder="Description" />
                     </div>
                     <div class="col-lg-12 col-sm-12 col-md-12">
-                        <label for="" class="font-weight-bold">Images</label>
+                        <label for="" class="font-weight-bold">Thumbnail</label>
                         <input type="file" name="images[]" class="border form-control" multiple/>
                     </div>
                     <div class="col-lg-12 col-sm-12 col-md-12 mt-2">

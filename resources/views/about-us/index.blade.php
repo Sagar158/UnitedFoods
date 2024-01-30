@@ -18,6 +18,12 @@
                         <div class="col-lg-12 col-sm-12 col-md-12 mt-3">
                             <x-text-area id="our_vission" name="our_vission" :value="old('our_vission', $aboutUs->our_vission)" required autofocus autocomplete="our_vission" placeholder="Our Vision" />
                         </div>
+                        <div class="col-lg-12 col-sm-12 col-md-12 mt-3">
+                            <x-text-area id="privacy_policy" name="privacy_policy" :value="old('privacy_policy', $aboutUs->privacy_policy)" required autofocus autocomplete="privacy_policy" placeholder="Privacy Policy" />
+                        </div>
+                        <div class="col-lg-12 col-sm-12 col-md-12 mt-3">
+                            <x-text-area id="terms" name="terms" :value="old('terms', $aboutUs->terms)" required autofocus autocomplete="terms" placeholder="Terms" />
+                        </div>
                         <div class="col-lg-12 col-sm-12 col-md-12 mt-2">
                             <x-primary-button class="btn btn-primary">
                                 {{ __('Submit') }}

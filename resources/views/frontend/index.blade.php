@@ -37,71 +37,19 @@
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="services-style-one">
-                                    <div class="thumb">
-                                        <img src="{{ asset('frontend/assets/img/thumb/1.png') }}" alt="Image Not Found">
+                            @if(!empty($products))
+                                @foreach($products as $product)
+                                    <div class="swiper-slide">
+                                        <div class="services-style-one text-center">
+                                            <div class="thumb">
+                                                <img src="{{ isset($product->primaryImage->image) ? asset($product->primaryImage->image) : asset('assets/images/placeholder.jpg') }}" style="width:150px; height:150px;border-radius:50%;" alt="Image Not Found">
+                                            </div>
+                                            <h5><a href="{{ route('product') }}">{{ $product->name }}</a></h5>
+                                            <a href="{{ route('product') }}"" class="btn btn-theme secondary btn-sm radius animation">View Details</a>
+                                        </div>
                                     </div>
-                                    <h5><a href="services-details.html">Fresh Vegetables</a></h5>
-                                    <p>
-                                        Continue indulged speaking technical out horrible domestic position. Seeing rather you.
-                                    </p>
-
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="services-style-one">
-                                    <div class="thumb">
-                                        <img src="{{ asset('frontend/assets/img/thumb/2.png') }}" alt="Image Not Found">
-                                    </div>
-                                    <h5><a href="services-details.html">Agricultural Products</a></h5>
-                                    <p>
-                                        Continue indulged speaking technical out horrible domestic position. Seeing rather you.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="services-style-one">
-                                    <div class="thumb">
-                                        <img src="{{ asset('frontend/assets/img/thumb/3.png') }}" alt="Image Not Found">
-                                    </div>
-                                    <h5><a href="services-details.html">Organic Products</a></h5>
-                                    <p>
-                                        Continue indulged speaking technical out horrible domestic position. Seeing rather you.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="services-style-one">
-                                    <div class="thumb">
-                                        <img src="{{ asset('frontend/assets/img/thumb/4.png') }}" alt="Image Not Found">
-                                    </div>
-                                    <h5><a href="services-details.html">Dairy Production</a></h5>
-                                    <p>
-                                        Continue indulged speaking technical out horrible domestic position. Seeing rather you.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="services-style-one">
-                                    <div class="thumb">
-                                        <img src="{{ asset('frontend/assets/img/thumb/6.png') }}" alt="Image Not Found">
-                                    </div>
-                                    <h5><a href="services-details.html">Sweet Exotic Fruits</a></h5>
-                                    <p>
-                                        Continue indulged speaking technical out horrible domestic position. Seeing rather you.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
+                                @endforeach
+                            @endif
                         </div>
 
                     </div>
@@ -120,7 +68,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-10 offset-xl-1 mb-50 mb-xs-30">
-                    <h2 class="mask-text" style="background-image: url(frontend/assets/img/banner/3.jpg);">Living a Healthy Lifestyle with Fresh Products</h2>
+                    <h1 class="text-white font-weight-bold">
+                        Founded in 1978, United Foods has grown to become a market leading exporter of the world’s finest palm dates.
+                    </h1>
                 </div>
             </div>
         </div>

@@ -104,8 +104,24 @@
                             <li><a href="{{ route('about-us') }}">What we do</a></li>
                             <li><a href="{{ route('product') }}">Products</a></li>
                             <li><a href="{{ route('event') }}">Events</a></li>
+                            <li><a href="{{ route('management-team') }}">The Team</a></li>
                             <li><a href="{{ route('contactus') }}">Contact us</a></li>
-                            <li><a href="{{ route('login') }}">Login</a></li>
+                            @if(Auth::check())
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Explore Admin</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('dashboard') }}">Go To Dashboard</a></li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="logout-click">Logout</a>
+                                        <form action="{{ route('logout') }}" method="POST" id="logout-form">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                            @else
+                                <li><a href="{{ route('login') }}">Login</a></li>
+                            @endif
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -141,4 +157,13 @@
         </nav>
         <!-- End Navigation -->
     </header>
-    <!-- End Header -->
+
+    @push('scripts')
+        <script>
+            $(document).ready(function(){
+                $('.logout-click').on('click',function(){
+                    $('#logout-form').submit();
+                });
+            });
+        </script>
+    @endpush

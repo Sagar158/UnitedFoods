@@ -30,6 +30,7 @@
     <link href="{{ asset('frontend/assets/css/unit-test.css')}}" rel="stylesheet">
     <link href="{{ asset('frontend/style.css')}}" rel="stylesheet">
     <!-- ========== End Stylesheet ========== -->
+    @stack('css')
 
 </head>
 <body>
@@ -57,5 +58,6 @@
     <script src="{{ asset('frontend/assets/js/loopcounter.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/validnavs.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
+    @stack('scripts')
 </body>
 </html>

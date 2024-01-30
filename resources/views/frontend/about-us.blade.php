@@ -2,9 +2,8 @@
 @section('content')
     @include('frontend.components.banner',['pageName' => 'About Us'])
 
-    <!-- Start About============================================= -->
-        <div class="about-style-one-area default-padding">
 
+        <div class="about-style-one-area default-padding">
             <!-- Shape -->
             <div class="shape-right-top">
                 <img src="{{ asset('frontend/assets/img/shape/leaf.png') }}" alt="Image not found">
@@ -52,7 +51,6 @@
                 </div>
             </div>
         </div>
-    <!-- End About -->
 
     <!-- Start Farmer============================================= -->
         <div class="farmer-area default-padding bottom-less bg-gray" style="background-image: url({{ asset('frontend/assets/img/shape/36.png') }});">

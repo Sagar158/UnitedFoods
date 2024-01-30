@@ -45,6 +45,8 @@ class TeamsController extends Controller
         $team->name = $validatedData['name'];
         $team->designation = $validatedData['designation'];
         $team->prefix = $validatedData['prefix'];
+        $team->mobile = $validatedData['mobile'];
+        $team->description = $validatedData['description'];
         $team->image = Helper::imageUpload($request->file('image'));
         $team->save();
 
@@ -77,6 +79,8 @@ class TeamsController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'prefix' => 'required',
+            'mobile' => 'required',
+            'description' => 'string',
             'designation' => 'nullable|string|max:255',
         ]);
 
@@ -84,6 +88,8 @@ class TeamsController extends Controller
         $team->name = $validatedData['name'];
         $team->designation = $validatedData['designation'];
         $team->prefix = $validatedData['prefix'];
+        $team->mobile = $validatedData['mobile'];
+        $team->description = $validatedData['description'];
         if($request->has('image'))
         {
             $team->image = Helper::imageUpload($request->file('image'));

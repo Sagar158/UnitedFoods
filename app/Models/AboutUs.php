@@ -10,6 +10,6 @@ class AboutUs extends Model
     use HasFactory;
     protected $table = 'about_us';
 
-    protected $fillable = ['our_mission','our_vission'];
+    protected $fillable = ['our_mission','our_vission','privacy_policy','terms'];
 
 }

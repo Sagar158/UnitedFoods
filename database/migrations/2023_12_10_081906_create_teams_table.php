@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('prefix')->default(1);
             $table->string('name');
+            $table->string('mobile');
             $table->string('designation');
+            $table->longText('description');
             $table->string('image')->nullable();
             $table->softDeletes();
             $table->timestamps();

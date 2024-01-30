@@ -25,6 +25,7 @@ use App\Http\Controllers\Frontend\HomeController;
 */
 
 Route::controller(HomeController::class)->group(function () {
+    Route::get('the-team','team')->name('management-team');
     Route::get('/','index')->name('home');
     Route::get('about-us','aboutus')->name('about-us');
     Route::get('product','products')->name('product');
@@ -32,6 +33,9 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('contactus','contactus')->name('contactus');
     Route::post('contact/store','contactStore')->name('contactStore');
     Route::get('certificates','certificates')->name('certificates');
+    Route::get('privacypolicy','privacypolicy')->name('privacypolicy');
+    Route::get('terms','terms')->name('terms');
+    Route::get('event/{id}/details','eventDetails')->name('eventDetails');
 });
 
 
@@ -43,8 +47,12 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('dashboard')->controller(DashboardController::class)->group(function () {
         Route::get('/', 'index')->name('dashboard');
-
     });
+
+    Route::prefix('profile.')->controller(ProfileController::class)->group(function () {
+        Route::get('edit','edit')->name('edit');
+    });
+
     Route::name('home.certifications.')->prefix('certifications')->controller(CertificationsController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');

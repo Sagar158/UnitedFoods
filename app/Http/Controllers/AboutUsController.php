@@ -41,6 +41,8 @@ class AboutUsController extends Controller
          $aboutUs =  AboutUs::findOrFail(1);
         $aboutUs->our_mission = $validatedData['our_mission'];
         $aboutUs->our_vission = $validatedData['our_vission'];
+        $aboutUs->privacy_policy = $validatedData['privacy_policy'];
+        $aboutUs->terms = $validatedData['terms'];
         $aboutUs->save();
         return redirect()->route('home.aboutus.index')->with('success', 'Mission & Vision added successfully.');
     }
@@ -69,11 +71,15 @@ class AboutUsController extends Controller
         $validatedData = $request->validate([
             'our_mission' => 'required|string',
             'our_vission' => 'required|string',
+            'privacy_policy' => 'required|string',
+            'terms' => 'required|string',
          ]);
 
         $aboutUs =  AboutUs::findOrFail(1);
         $aboutUs->our_mission = $validatedData['our_mission'];
         $aboutUs->our_vission = $validatedData['our_vission'];
+        $aboutUs->privacy_policy = $validatedData['privacy_policy'];
+        $aboutUs->terms = $validatedData['terms'];
         $aboutUs->save();
         return redirect()->route('home.aboutus.index')->with('success', 'Mission & Vision updated successfully.');
     }

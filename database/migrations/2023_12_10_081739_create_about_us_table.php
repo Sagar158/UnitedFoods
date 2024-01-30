@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->longText('our_mission')->nullable();
             $table->longText('our_vission')->nullable();
+            $table->longText('privacy_policy')->nullable();
+            $table->longText('terms')->nullable();
             $table->timestamps();
         });
     }
