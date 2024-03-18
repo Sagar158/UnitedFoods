@@ -9,7 +9,7 @@
     <meta name="description" content="Agrul - Organic Farm Agriculture Template">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- ========== Page Title ========== -->
-    <title>Agrul - Organic Farm Agriculture Template</title>
+    <title>United Foods</title>
 
     <!-- ========== Favicon Icon ========== -->
     <link rel="shortcut icon" href="{{ asset('frontend/assets/img/favicon.png') }}" type="image/x-icon">
